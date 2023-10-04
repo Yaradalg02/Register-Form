@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap" rel="stylesheet">
+
+    <title>Sign Up / Sign In</title>
+</head>
+<body>
+    <div class="container">
+        <div class="left-side">
+            <div class="text-container">
+                <h1 id="signup-text">Sign Up</h1>
+                <p>sign up with your simple details.
+                it will be cross checked by the adminstration</p>
+            
+                <h1 id="signin-text">Sign in</h1>
+                <p>sign in with your username and password</p>
+            </div>
+        </div>
+        <div class="right-side">
+                <form class="form-container"action="#" method="POST" id="signup-form">
+                    
+                    <label for="firstName" id="fname" >FIRST NAME</label>
+                    <input type="text" id="nameField" name="firstName" placeholder="example.new" class="input-field" required>
+                    
+                    <label for="LastName" id="lname">LAST NAME</label>
+                    <input type="text" id="LnameField" name="LastName"  placeholder="example.new" class="input-field" required>
+
+                    <label for="email">EMAIL</label>
+                    <input type="email" id="email" name="email"  placeholder="example@new.com" class="input-field" required>
+
+                    <label for="password">PASSWORD</label>
+                    <input type="password" id="password" name="password"  placeholder="*********" class="input-field" required>
+
+                    <div class="checkbox-label">
+                        <input type="checkbox" id="terms" name="terms" class="checkbox-input">
+                        <label for="terms">I agree to the terms and conditions</label>
+                    </div>
+                    <div class="btn-field">
+                        <button class="submit-button" id="signup-button" type="">Sign Up</button>
+                            <div class="separator">
+                                <div class="separator-text">or</div>
+                            </div>
+                        <button class="submit-button" id="signin-button" type="button">Sign In</button>
+                    </div>
+                </form>
+                <form id="signin-form" class="form-container" action="#" method="POST" style="display: none;">
+                    <label for="email">EMAIL</label>
+                    <input type="email" id="email" name="email"  placeholder="example@new.com" class="input-field" required>
+
+                    <label for="password">PASSWORD</label>
+                    <input type="password" id="password" name="password"  placeholder="*********" class="input-field" required>
+
+                    <div class=".btn-field">
+                        <button class="submit-button" id="signup-button" type="">Sign Up</button>
+                            <div class="separator">
+                                <div class="separator-text">or</div>
+                            </div>
+                        <button class="disable"id="signin-button" type="button">Sign In</button>
+                    </div>
+                </form>
+            
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+let signUpBtn = document.getElementById("signup-button");
+let signInBtn = document.getElementById("signin-button");
+let FnameField = document.getElementById("nameField");
+let fnameLabel = document.getElementById("fname");
+let lnameField = document.getElementById("LnameField");
+let lnameLabel = document.getElementById("lname");
+let signinText = document.getElementById("signin-text");
+let signupText = document.getElementById("signup-text");
+let checkboxLabel = document.querySelector(".checkbox-label"); // Select the checkbox label
+
+
+signInBtn.onclick = function(){
+    FnameField.style.display = "none"; // Hide the name field
+    fnameLabel.style.display = "none"; // Hide the name label
+    lnameField.style.display = "none"; // Hide the last name field
+    lnameLabel.style.display = "none"; // Hide the last name label
+    signUpBtn.classList.add("disable");
+    signInBtn.classList.remove("disable");
+    
+    signinText.style.fontSize = "40px"; // Adjust the font size as needed
+    signupText.style.fontSize = "20px"; // Adjust the font size as needed
+
+    checkboxLabel.style.display = "none";
+}
+
+signUpBtn.onclick = function(){
+    FnameField.style.display = "block"; // Show the name field
+    fnameLabel.style.display = "block"; // Show the name label
+    lnameField.style.display = "block"; // Show the Lname field
+    lnameLabel.style.display = "block"; // Show the Lname label
+    signUpBtn.classList.remove("disable");
+    signInBtn.classList.add("disable");
+    
+    signupText.style.fontSize = "40px"; // Adjust the font size as needed
+    signinText.style.fontSize = "20px"; // Adjust the font size as needed
+
+    checkboxLabel.style.display = "block";
+
+}
+
+</script>
